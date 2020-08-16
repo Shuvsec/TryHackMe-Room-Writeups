@@ -7,3 +7,9 @@
 ``wireshark overpass2.pcapng``
 
 # ![2](Images/wireshark_get_req.png?raw=true "scan")
+
+** At first glance itself of the packet we can observe GET requests and some HTTP requests. Let's observe them in detail so that we can understand them better. **
+
+# ![3](Images/get.png?raw=true "scan")
+
+** This GET request doesn't seem to have any valuable information , lets go on to the next HTTP request. **
