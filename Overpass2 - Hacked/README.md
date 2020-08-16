@@ -36,6 +36,8 @@ The attacker managed to start a reverse shell on the system (/development/upload
 
 ### #4 How did the attacker establish persistence?
 
+The attacker downloaded a backdoor on the system 
+
 # ![5](Images/Persistence.png?raw=true"Scan")
 
 ### #5 Using the fasttrack wordlist, how many of the system passwords were crackable?
@@ -45,11 +47,34 @@ Just select and copy the contents of /etc/shadow visible in the TCP Stream and s
 ## [Task 2] Research - Analyse the code 
 Now that you've found the code for the backdoor, it's time to analyse it.
 
+Go ahead and download the backdoor.
+
+``git clone https://github.com/NinjaJc01/ssh-backdoor``
+
+The first thing that should come to our mind would be to examine the main function so that we could have the idea of what is going on in the backdoor and what functions it is using and how it works.
+
+Examine the main function ``main.go``
+
 ### #1  What's the default hash for the backdoor?
+
+# ![6](Images/defaulthash.png?raw=true"Scan")
+
+The variable hash string comprises of the default hash for the backdoor.
+
 ### #2  What's the hardcoded salt for the backdoor?
+One of the worst mistakes a developer commits, is to use hardcoded values, it makes exploitation 10 folds easier.
+
+# ![7](Images/hardcodedsalt.png?raw=true"Scan")
+
 ### #3  What was the hash that the attacker used? - go back to the PCAP for this!
 
+# ![8](Images/Attackerhash.png?raw=true"Scan")
+
 ### #4  Crack the hash using rockyou and a cracking tool of your choice. What's the password?
+
+Take the above hash and use Hashcat or John The Ripper to crack it, as it is salted online hash cracking tools won't work.
+
+``hashcat -m 1710 -a 0 hash:salt /usr/share/wordlists/rockyou.txt``
 
 ## [Task 3] Attack - Get back in! 
 
