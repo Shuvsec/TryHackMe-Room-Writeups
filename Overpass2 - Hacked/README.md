@@ -2,6 +2,12 @@
 ## 'Overpass 2' is a great beginner walkthrough room containing concepts from Research , Analysis and Forensics. 
 
 ## [Task 1] Forensics - Analyse the PCAP
+** Overpass has been hacked! The SOC team (Paradox, congratulations on the promotion) noticed suspicious activity on a late night shift while looking at shibes, and managed to capture packets as the attack happened.
+
+Can you work out how the attacker got in, and hack your way back into Overpass' production server?
+
+Note: Although this room is a walkthrough, it expects familiarity with tools and Linux. I recommend learning basic Wireshark and completing [CC: Pentesting](https://tryhackme.com/room/ccpentesting) and [Learn Linux](https://tryhackme.com/room/zthlinux) as a bare minimum. **
+
 ** We are given a PCAP file ``overpass2.pcapng`` by hints of which looks like we need to investigate packets of data using wireshark , so we fire up wireshark **
 
 ``wireshark overpass2.pcapng``
