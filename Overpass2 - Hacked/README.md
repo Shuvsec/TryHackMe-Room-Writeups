@@ -81,3 +81,12 @@ Take the above hash and use Hashcat or John The Ripper to crack it, as it is sal
 Now that the incident is investigated, Paradox needs someone to take control of the Overpass production server again.
 
 There's flags on the box that Overpass can't afford to lose by formatting the server!
+
+### #1  The attacker defaced the website. What message did they leave as a heading?
+Deploy the machine and go to the IP Address provided and you'll be able to see the message crystal clear.
+### #2 What's the user flag?
+
+# ![9] (Images/Backdoor_Port.png?raw=true"Scan")
+As we know that the backdoor was setup on port 2222 , we can expect it to run a ssh service on the same. To login we will use the previously gained password which we cracked and the username of james. 
+
+### #3 What's the root flag?
