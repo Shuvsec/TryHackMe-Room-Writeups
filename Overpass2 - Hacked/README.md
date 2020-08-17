@@ -1,5 +1,5 @@
 # Writeup for TryHackMe Room '[Overpass 2 - Hacked](https://tryhackme.com/room/overpass2hacked)'
-## 'Overpass 2' is a great beginner walkthrough room containing concepts from Research , Analysis and Forensics. 
+## 'Overpass 2' is a great beginner walkthrough room containing concepts from Research , Analysis and Forensics and a wee bit of Privesc. This room is made by [NinjaJc01](https://tryhackme.com/p/NinjaJc01) AKA James.
 
 ## [Task 1] Forensics - Analyse the PCAP
 
@@ -98,3 +98,39 @@ The flag is in james's home directory.
 # ![11](Images/userflag.png?raw=true"Scan")
 
 ### #3 What's the root flag?
+
+If we look carefully, we will find some hidden files in the directory.
+
+``ls -al``
+
+# ![12](Images/suidbash.png?raw=true"Scan")
+
+Or we could also find suid files alternatively,
+
+``find / 2>/dev/null -perm -u=s ``
+
+# ![13](Images/Suidperm.png?raw=true"Scan")
+
+so we see a suspicious excecutable with suid permission , .suid_bash
+
+after running the file normally we get a bash 4.4 shell and checking ``whoami`` we are still james even though the file is owned by root, strange
+
+# ![14](Images/suidbashwithoutflag.png?raw=true"Scan")
+
+Lets dig into ``man bash`` ,
+
+So we get some valuable information,
+
+# ![15](Images/manbash.png?raw=true"Scan")
+
+Now lets utilize the flag,
+
+``./.suid_bash -p``
+
+# ![16](Images/suidbashwithflag.png?raw=true"Scan")
+
+We have root priviledges now, the flag is at /root/root.txt
+
+# ![17](Images/rootflag.png?raw.truw"Scan")
+
+I hope you enjoyed the writeup, this was a very beginner friendly and informative room encompassing a good array of technologies together.
