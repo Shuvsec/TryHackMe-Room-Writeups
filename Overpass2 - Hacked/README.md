@@ -89,4 +89,12 @@ Deploy the machine and go to the IP Address provided and you'll be able to see t
 # ![9](Images/Backdoor_Port.png?raw=true"Scan")
 As we know that the backdoor was setup on port 2222 , we can expect it to run a ssh service on the same. To login we will use the previously gained password which we cracked and the username of james. 
 
+``ssh james@<IP> -p 2222 ``
+
+# ![10](Images/sshlogin.png?raw=true"Scan")
+
+The flag is in james's home directory.
+
+# ![11](Images/userflag.png?raw=true"Scan")
+
 ### #3 What's the root flag?
